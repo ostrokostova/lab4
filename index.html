@@ -8,8 +8,7 @@
 <body>
     <div id="app">
         <h1>{{title}}</h1>
-        <div id="pageEditor">
-            {{text}}
+        <div id="pageEditor" v-html="text">
         </div>
     </div>
     <!-- версия для разработки, отображает полезные предупреждения в консоли -->
@@ -25,6 +24,21 @@
             },
             methods:{
                 onKeyDown(e) {
+                    switch (e.keyCode) {
+                        case 16:
+                            return
+                            break;
+                        case 13: 
+                            this.text += '<br>'
+                            return
+                            break;
+                        case 8:
+                            this.text = this.text.slice(0, -1)
+                            return
+                            break;
+                        default:
+                            break;
+                    }
                    this.text +=e.key
                    console.log(e)
                 }
