@@ -8,7 +8,7 @@
 <body>
     <div id="app">
         <h1>{{title}}</h1>
-        <div id="pageEditor" v-html="text">
+        <div id="pageEditor" v-html="colorEmailText">
         </div>
     </div>
     <!-- версия для разработки, отображает полезные предупреждения в консоли -->
@@ -42,6 +42,11 @@
                    this.text +=e.key
                    console.log(e)
                 }
+            },
+            computed:{ 
+                colorEmailText(){ 
+                    return this.text.replace(/(\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)/gmu, email=> `<span style='color: blue;'> ${email} </span>`) 
+                } 
             },
             created(){
                 document.addEventListener('keydown', this.onKeyDown)
