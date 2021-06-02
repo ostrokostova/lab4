@@ -4,11 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Острокостова Н.Н. Лабораторное задание 4</title>
+    <style>
+        .editor { 
+            width: 80vw; 
+            min-height: 100vw; 
+            margin-left: 10vw; 
+            border: 1px solid rgb(76, 164, 236); 
+            text-align: left; 
+            background-color: white; 
+            -webkit-box-shadow: 6px 10px 9px 0px rgba(0, 0, 0, 0.75); 
+            -moz-box-shadow: 6px 10px 9px 0px rgba(0, 0, 0, 0.75); 
+            box-shadow: 6px 10px 9px 0px rgba(0, 0, 0, 0.75); 
+            padding: 15px; }
+    </style>
 </head>
 <body>
     <div id="app">
         <h1>{{title}}</h1>
-        <div id="pageEditor" v-html="colorEmailText">
+        <div id="pageEditor" class="editor" v-html="colorEmailText">
         </div>
     </div>
     <!-- версия для разработки, отображает полезные предупреждения в консоли -->
@@ -26,6 +39,9 @@
                 onKeyDown(e) {
                     switch (e.keyCode) {
                         case 16:
+                            return
+                            break;
+                        case 18:
                             return
                             break;
                         case 13: 
